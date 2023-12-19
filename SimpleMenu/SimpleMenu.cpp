@@ -57,6 +57,24 @@ void SimpleMenu::TEST_AddRandomOptions(int argQuantity) {
 	}
 }
 
+void SimpleMenu::TEST_AddRandomOptions_AnyTest(int argQuantity) {
+	for (int i = 0; i < argQuantity; ++i) {
+		if (i == 0) {
+			bool test{ true };
+			std::any anyBool{ test };
+			options.push_back(SimpleMenu_Option("TEST", anyBool));
+		}
+		else if (i == 1) {
+			auto title_pointer = std::make_shared<std::string>(title);
+			std::any anyPointer{ std::move(title_pointer) };
+			options.push_back(SimpleMenu_Option("TEST", anyPointer));
+		}
+		else {
+			options.push_back(SimpleMenu_Option("TEST"));
+		}
+	}
+}
+
 inline void SimpleMenu::TEST_PrintAllOptionsNames() {
 	for (const auto& option : this->options) {
 		std::cout << option.GetName() << std::endl;

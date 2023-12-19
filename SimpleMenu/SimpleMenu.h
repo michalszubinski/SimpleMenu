@@ -18,5 +18,6 @@ public:
 
 	// METHODS FOR TESTING
 	void TEST_AddRandomOptions(int argQuantity);
+	void TEST_AddRandomOptions_AnyTest(int argQuantity);
 	void TEST_PrintAllOptionsNames();
 };

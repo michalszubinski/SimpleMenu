@@ -10,6 +10,13 @@ void SimpleMenu_Option::SetName(std::string argName)
     this->name = argName;
 }
 
+void SimpleMenu_Option::MoveAny(std::any argAny)
+{
+    anyObject.reset();
+
+    anyObject = std::move(argAny);
+}
+
 std::optional<std::string> SimpleMenu_Option::getAnyType_OptionalString()
 {
     try {
@@ -22,3 +29,4 @@ std::optional<std::string> SimpleMenu_Option::getAnyType_OptionalString()
         return empty;
     }
 }
+

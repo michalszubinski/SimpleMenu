@@ -6,3 +6,4 @@ public:
 	static void ClearScreen();
 	static char ReadKey();
 };
+
