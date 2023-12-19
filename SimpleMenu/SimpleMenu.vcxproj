@@ -129,11 +129,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleMenu.cpp" />
     <ClCompile Include="SimpleMenu_Option.cpp" />
     <ClCompile Include="SimpleMenu_Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Libraries.h" />
+    <ClInclude Include="SimpleMenu_Libraries.h" />
     <ClInclude Include="SimpleMenu.h" />
     <ClInclude Include="SimpleMenu_Option.h" />
     <ClInclude Include="SimpleMenu_Utilities.h" />

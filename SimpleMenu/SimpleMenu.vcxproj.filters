@@ -24,12 +24,15 @@
     <ClCompile Include="SimpleMenu_Utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Libraries.h">
+    <ClInclude Include="SimpleMenu_Libraries.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SimpleMenu_Option.h">
