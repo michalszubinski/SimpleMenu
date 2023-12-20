@@ -69,14 +69,30 @@ void SimpleMenu::TEST_AddRandomOptions_AnyTest(int argQuantity) {
 			std::any anyPointer{ std::move(title_pointer) };
 			options.push_back(SimpleMenu_Option("TEST", anyPointer));
 		}
+		else if (i == 2) {
+			std::function<void()> functionObject(std::bind(&SimpleMenu::TEST_PrintSampleText, this));
+			std::any anyPointer{ functionObject };
+			options.push_back(SimpleMenu_Option("TEST", anyPointer));
+			auto pointer = options[i].getPointerToAny(); // get smart pointer to any
+			//std::any_cast< std::function<void()> >( pointer.get() ); //pointer.get();
+			auto anyy = *pointer.get(); // get any
+			auto functionObj2 = std::any_cast<std::function<void()>>( anyy ); // get function object
+			functionObj2();
+
+		}
 		else {
 			options.push_back(SimpleMenu_Option("TEST"));
 		}
 	}
 }
 
-inline void SimpleMenu::TEST_PrintAllOptionsNames() {
+void SimpleMenu::TEST_PrintAllOptionsNames() {
 	for (const auto& option : this->options) {
 		std::cout << option.GetName() << std::endl;
 	}
+}
+
+void SimpleMenu::TEST_PrintSampleText()
+{
+	std::cout << "Sample text\n";
 }

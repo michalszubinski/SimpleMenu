@@ -30,3 +30,8 @@ std::optional<std::string> SimpleMenu_Option::getAnyType_OptionalString()
     }
 }
 
+std::shared_ptr<std::any> SimpleMenu_Option::getPointerToAny()
+{
+    return std::make_shared<std::any>(anyObject);
+}
+

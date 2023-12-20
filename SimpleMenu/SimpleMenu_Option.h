@@ -6,6 +6,7 @@ class SimpleMenu_Option {
 	std::any anyObject;
 
 public: 
+
 	SimpleMenu_Option(std::string argName) : name(argName){ }
 	SimpleMenu_Option(std::string argName, std::any argAny) : name(argName), anyObject(std::move(argAny)){ }
 
@@ -15,4 +16,5 @@ public:
 	void MoveAny(std::any argAny);
 
 	std::optional<std::string> getAnyType_OptionalString();
+	std::shared_ptr<std::any> getPointerToAny();
 };

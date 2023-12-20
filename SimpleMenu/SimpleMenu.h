@@ -20,4 +20,5 @@ public:
 	void TEST_AddRandomOptions(int argQuantity);
 	void TEST_AddRandomOptions_AnyTest(int argQuantity);
 	void TEST_PrintAllOptionsNames();
+	void TEST_PrintSampleText();
 };
