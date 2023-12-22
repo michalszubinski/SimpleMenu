@@ -15,6 +15,7 @@ public:
 	void Run();
 	void Print();
 	void changeActiveOption(char dir);
+	std::optional< std::shared_ptr<SimpleMenu_Option> > getOptionalOptionPointer(int id);
 
 	// METHODS FOR TESTING
 	void TEST_AddRandomOptions(int argQuantity);

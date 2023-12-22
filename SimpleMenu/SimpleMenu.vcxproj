@@ -134,6 +134,7 @@
     <ClCompile Include="SimpleMenu_Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SimpleMenu_Functions.h" />
     <ClInclude Include="SimpleMenu_Libraries.h" />
     <ClInclude Include="SimpleMenu.h" />
     <ClInclude Include="SimpleMenu_Option.h" />

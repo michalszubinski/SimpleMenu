@@ -1,4 +1,6 @@
 #include "SimpleMenu.h"
+#include "SimpleMenu_Functions.h"
+
 
 SimpleMenu::SimpleMenu() {
 	this->activeOption = 0;
@@ -49,6 +51,19 @@ void SimpleMenu::changeActiveOption(char dir) {
 	}
 }
 
+std::optional<std::shared_ptr<SimpleMenu_Option> > SimpleMenu::getOptionalOptionPointer(int id)
+{
+	try {
+		std::optional<std::shared_ptr<SimpleMenu_Option> > o{ std::make_shared<SimpleMenu_Option>(options[id]) };
+		return o;
+	}
+	catch(std::exception& ex){
+		std::cout << ex.what() << std::endl;
+		std::optional<std::shared_ptr<SimpleMenu_Option> > o;
+		return o;
+	}
+}
+
 // METHODS FOR TESTING
 
 void SimpleMenu::TEST_AddRandomOptions(int argQuantity) {
@@ -70,14 +85,23 @@ void SimpleMenu::TEST_AddRandomOptions_AnyTest(int argQuantity) {
 			options.push_back(SimpleMenu_Option("TEST", anyPointer));
 		}
 		else if (i == 2) {
+			/**/
 			std::function<void()> functionObject(std::bind(&SimpleMenu::TEST_PrintSampleText, this));
 			std::any anyPointer{ functionObject };
 			options.push_back(SimpleMenu_Option("TEST", anyPointer));
+
+			// CALL THE FUNCTION V1
+			/*
+
 			auto pointer = options[i].getPointerToAny(); // get smart pointer to any
 			//std::any_cast< std::function<void()> >( pointer.get() ); //pointer.get();
 			auto anyy = *pointer.get(); // get any
 			auto functionObj2 = std::any_cast<std::function<void()>>( anyy ); // get function object
 			functionObj2();
+			//SimpleMenu_Functions::Test();*/
+
+			// CALL THE FUNCTION V2
+			SimpleMenu_Functions::RunOptionsFunction<void, void()>(options[i]);
 
 		}
 		else {
